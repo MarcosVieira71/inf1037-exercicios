@@ -9,7 +9,7 @@ int countWordsUpper(char*s){
         return 0;
     }
     else{
-        if('A' <= *s && *s <= 'Z'){
+        if((*s == ' ') && ('A' <= *(s+1) && *(s+1) <= 'Z')){
             return 1 + countWordsUpper(s+1);
         }
         else return 0 + countWordsUpper(s+1);
@@ -93,8 +93,23 @@ char* formataNome(char*nome){
 }
 
 int main(void){
-    char nome[] = "  Marcos Paulo Marinho   Vieira   ";
-    char* nomeFormatado = formataNome(nome);
-    printf("%s", nomeFormatado);
-    return 0;
+    FILE* fp = fopen("cadastro.txt", "r");
+    int numeroLinhas;
+    FILE* fpBin = fopen("notas.dat", "wb");
+    fscanf(fp, "%d", &numeroLinhas);
+    char **alunos = (char**)malloc(sizeof(char*) * numeroLinhas);
+    for(int i = 0; i < numeroLinhas; i++){
+        char matricula[11];
+        char nomeAluno[41];
+        char nota[3];
+        fscanf(fp, " %[^:]:%[^,] , %[^\n] ", matricula, nomeAluno, nota);
+        char* novoNome = formataNome(nomeAluno);
+        alunos[i] = novoNome;
+        fwrite(novoNome, 1, 50, fpBin);
+        fwrite(nota, 1, 2, fpBin);
+    }
+    fclose(fpBin);
+    fclose(fp);
+    FILE* fpBinR = fopen("notas.dat", "rb");
+    
 }
