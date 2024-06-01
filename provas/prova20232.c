@@ -93,7 +93,7 @@ char* formataNome(char*nome){
 }
 
 int main(void){
-    FILE* fp = fopen("cadastro.txt", "r");
+    FILE* fp = fopen("cadastro20232.txt", "r");
     int numeroLinhas;
     FILE* fpBin = fopen("notas.dat", "wb");
     fscanf(fp, "%d", &numeroLinhas);
