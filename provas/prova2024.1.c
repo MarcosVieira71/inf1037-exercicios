@@ -1,7 +1,7 @@
 // *** utilidades.h ***//
 
-//NOME: MARCOS PAULO MARINHO VIEIRA
-//TURMA: 33A MATRICULA:2320466 PROFESSOR: WALDEMAR CELES
+//NOME: MARCOS VIEIRA
+//TURMA: 33A MATRICULA: PROFESSOR: WALDEMAR CELES
 int numBrancos(char* s);
 char* montaNome(char* s);
 char** leNomes(char* nomeDoArquivo, int* nElementos);
@@ -9,8 +9,8 @@ void gravaNomes(char* nomeDoArquivo, char** nomes, int numeroElementos);
 void liberaVetor(char** vetorLiberar, int nElementos);
 
 //*** utilidades.c ***//
-//NOME: MARCOS PAULO MARINHO VIEIRA
-//TURMA: 33A MATRICULA:2320466 PROFESSOR: WALDEMAR CELES
+//NOME: MARCOS VIEIRA
+//TURMA: 33A MATRICULA: PROFESSOR: WALDEMAR CELES
 #define _CRT_SECURE_NO_DEPRECATE
 #include <string.h>
 #include <stdio.h>
@@ -122,8 +122,8 @@ void liberaVetor(char** vetorLiberar, int nElementos) {
 
 //*** .c ***//
 
-//NOME: MARCOS PAULO MARINHO VIEIRA
-//TURMA: 33A MATRICULA:2320466 PROFESSOR: WALDEMAR CELES
+//NOME: MARCOS VIEIRA
+//TURMA: 33A  PROFESSOR: WALDEMAR CELES
 
 #define _CRT_SECURE_NO_DEPRECATE
 #include "utilidades.h"
