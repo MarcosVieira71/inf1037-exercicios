@@ -91,10 +91,12 @@ float averageRating(Cadastro* cad) {
 	return (float)somatorio / counter;
 }
 
+
 void liberaCadastro(Cadastro* cad) {
 	for (int i = 0; i < ALPHA; i++) {
-		for (CList* p = cad->vetor[i]; p != NULL; p = p->proximo) {
-			CList* t = p;
+		CList* p = cad->vetor[i];
+		while (p != NULL) {
+			CList* t = p->proximo;
 			free(p->nome);
 			free(p);
 			p = t;
@@ -102,3 +104,4 @@ void liberaCadastro(Cadastro* cad) {
 	}
 	free(cad);
 }
+
