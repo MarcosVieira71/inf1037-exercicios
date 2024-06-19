@@ -30,19 +30,44 @@ int main(void){
     l2 = createList(l2, 440, "edu");
     l2 = createList(l2, 333, "rui");
     l2 = createList(l2, 111, "leo");
+
+    l1 = mergeList(l1, l2);
+    showList(l1);
     return 0;
 }
 
-Node* mergeList(Node* l1, Node* l2){
-    Node* temp;
-    for(; l1 != NULL && l2 != NULL; l1 = l1->next, l2 =l2->next){
-        if(l2->id > l1->id){
-            temp = l1;
-            l1 = l1->next;
-        
-    }
-   }
+Node* mergeList(Node *lista1, Node *lista2) {
+    Node *result = NULL; // Ponteiro para a lista resultante
+    Node **lastPtrRef = &result; // Ponteiro para o ponteiro do último nó da lista resultante
 
+    while (lista1 != NULL && lista2 != NULL) {
+        if (lista1->id < lista2->id) {
+            // Adiciona nó de lista1 à lista resultante
+            *lastPtrRef = lista1;
+            lista1 = lista1->next;
+        } else if (lista2->id < lista1->id) {
+            // Adiciona nó de lista2 à lista resultante
+            *lastPtrRef = lista2;
+            lista2 = lista2->next;
+        } else {
+            // Nós com o mesmo código, adiciona um deles e avança em ambas as listas
+            *lastPtrRef = lista1;
+            lista1 = lista1->next;
+            Node *temp = lista2;
+            lista2 = lista2->next;
+            free(temp); // Libera o nó duplicado
+        }
+        lastPtrRef = &((*lastPtrRef)->next); // Avança o ponteiro do último nó
+    }
+
+    // Anexa os nós restantes de lista1 ou lista2
+    if (lista1 != NULL) {
+        *lastPtrRef = lista1;
+    } else {
+        *lastPtrRef = lista2;
+    }
+
+    return result;
 }
 
 Node* createList(Node* l, int id, char* name){
@@ -54,7 +79,7 @@ Node* createList(Node* l, int id, char* name){
 }
 
 void showList(Node* l){
-    for(Node* p = l; p!=NULL; p=p->next) printf("id: %d | name: %s", p->id, p->name);
+    for(Node* p = l; p!=NULL; p=p->next) printf("id: %d | name: %s\n", p->id, p->name);
 }
 
 void freeList(Node* l){
