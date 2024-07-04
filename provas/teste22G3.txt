@@ -1,0 +1,7 @@
+Ana Silva,01/01/2020,3500.0
+Carlos Souza,15/03/2018,4200.0
+Mariana Lima,20/07/2019,3900.0
+Pedro Alves,05/11/2021,2800.0
+Fernanda Costa,12/02/2022,4700.0
+Pedro Augusto,10/12/2024,2000.0
+Ana Carolina,04/22/2144,2444.0
